@@ -1,6 +1,6 @@
+import { EColors, EFont } from '../../shared/config/constant';
 import { StyleSheet } from 'react-native';
 
-import { EColors, EFont } from '../../../../utils/constant';
 
 export default StyleSheet.create({
     root: {

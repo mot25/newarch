@@ -4,18 +4,18 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { Image, Keyboard, KeyboardAvoidingView, Platform, ScrollView, View } from 'react-native';
 import { ALERT_TYPE, AlertNotificationRoot, Dialog, Toast } from 'react-native-alert-notification';
+import { NavPaymentsParamsType } from '../../app/app-navigate/MainTab/config/types';
+import { EColors } from '../../shared/config/constant';
+import { thousand } from '../../shared/lib/helpers';
+import { SafeAreaKeyboard } from '../../shared/ui/SafeAreaKeyboard';
+import { SimpleButton } from '../../shared/ui/SimpleButton';
 
-import { SafeAreaKeyboard } from '../../components/simple/SafeAreaKeyboard';
-import SimpleButton from '../../components/simple/SimpleButton/SimpleButton';
-import { TextLine } from '../../components/simple/TextLine';
-import { NavPaymentsParamsType } from '../../navigation/types';
-import { EColors } from '../../utils/constant';
-import { getProcent, thousand } from '../../utils/helpers';
-import { InputCardNumber } from './parts/InputCardNumber';
-import { SelectCardItem } from './parts/SelectCardItem';
-import { ETypeCard } from './parts/SelectCardItem/SelectCardItem';
-import { SumCardItem } from './parts/SumCardItem';
+
+import { InputCardNumber } from '../../features /InputCardNumber';
+
 import styles from './Services.styles';
+import { SumCardItem } from '../../features /SumCardItem';
+import SelectCardItem, { ETypeCard } from '../../features /SelectCardItem/SelectCardItem';
 
 type Props = {}
 type TSum = {

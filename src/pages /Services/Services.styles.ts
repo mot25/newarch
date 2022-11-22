@@ -1,6 +1,6 @@
 import { Dimensions, StyleSheet } from 'react-native';
-const { height } = Dimensions.get('window')
-import { EColors } from '../../utils/constant';
+import { EColors } from '../../shared/config/constant';
+
 
 export default StyleSheet.create({
     root: {
@@ -20,6 +20,5 @@ export default StyleSheet.create({
         paddingBottom: 24
     },
     center: {
-        // height: height - 570
     }
 })

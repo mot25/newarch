@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { TextInput, View } from 'react-native';
 
 import { IconSearch } from '../../../../assets/icons/IconSearch';
-import { EColors } from '../../../utils/constant';
+import { EColors } from '../../config/constant';
 import styles from './Input.styles';
 
 type Props = {

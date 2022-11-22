@@ -4,17 +4,11 @@ import { FlatList, TextInput, View } from 'react-native';
 import Svg, { Circle, Path } from 'react-native-svg';
 
 import { IconSearch } from '../../../assets/icons/IconSearch';
-import { Skeleton } from '../../components/complex/Skeleton';
-import { EmpetyList } from '../../components/simple/EmpetyList';
-import { Input } from '../../components/simple/Input';
-import Seperator from '../../components/simple/Seperator/Seperator';
-import { TextLine } from '../../components/simple/TextLine';
-import { useAppSelector } from '../../hook/useStore';
-import { NavPaymentsParamsType } from '../../navigation/types';
-import { useGetServicesListQuery } from '../../services/ServicesList';
-import { ICategory, IService } from '../../types/types';
+import { NavPaymentsParamsType } from '../../app/app-navigate/MainTab/config/types';
+import { EmpetyList } from '../../shared/ui/EmpetyList';
+import { Skeleton } from '../../entities/Skeleton';
+
 import styles from './CategoryList.styles';
-import { CategoryItem } from './parts/CategoryItem';
 
 
 
@@ -22,7 +16,10 @@ type NSPaymentsProps = NativeStackScreenProps<NavPaymentsParamsType, 'pm_categor
 
 const CategoryList = ({ navigation, route }: NSPaymentsProps) => {
   const { id } = route.params
-  const { isFetching, data, refetch } = useGetServicesListQuery()
+  // const { isFetching, data, refetch } = useGetServicesListQuery()
+  const isFetching = false
+  const data: any = []
+  const refetch = false
   const findServices: ICategory | undefined = data?.category.find(item => item.category_id === id.toString())
 
 

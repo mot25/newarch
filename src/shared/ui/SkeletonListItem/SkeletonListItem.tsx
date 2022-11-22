@@ -2,7 +2,6 @@ import { useIsFocused } from '@react-navigation/native';
 import React, { memo, useEffect } from 'react';
 import { Animated, Text, View } from 'react-native';
 
-import { EColors } from '../../../../../utils/constant';
 import styles from './SkeletonListItem.styles';
 
 type Props = {}

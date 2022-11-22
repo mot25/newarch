@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { TextStyle, View } from 'react-native';
+import { EColors } from '../../config/constant';
 
-import { EColors } from '../../../utils/constant';
 import { CTouchableOpacity } from '../CTouchableOpacity';
 import { TextLine } from '../TextLine';
 import styles from './SimpleButton.style';

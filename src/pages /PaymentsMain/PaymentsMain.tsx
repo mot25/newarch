@@ -1,14 +1,14 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React, { useState } from 'react';
 import { FlatList, View } from 'react-native';
+import { NavPaymentsParamsType } from '../../app/app-navigate/MainTab/config/types';
+import { CategoryItem } from '../../entities/CategoryItem';
+import { EmpetyList } from '../../shared/ui/EmpetyList';
+import { Seperator } from '../../shared/ui/Seperator';
+import { Skeleton } from '../../entities/Skeleton';
+import { TextLine } from '../../shared/ui/TextLine';
 
-import { Skeleton } from '../../components/complex/Skeleton';
-import { EmpetyList } from '../../components/simple/EmpetyList';
-import Seperator from '../../components/simple/Seperator/Seperator';
-import { TextLine } from '../../components/simple/TextLine';
-import { NavMainTabsParamsType, NavPaymentsParamsType } from '../../navigation/types';
-import { useGetServicesListQuery } from '../../services/ServicesList';
-import { CategoryItem } from './parts/CategoryItem';
+
 import styles from './PaymentsMain.styles';
 
 type Props = {}
@@ -17,7 +17,10 @@ type NSPaymentsProps = NativeStackScreenProps<NavPaymentsParamsType, 'pm_index'>
 const PaymentsMain = (
     { navigation }: NSPaymentsProps
 ) => {
-    const { isFetching, data, refetch } = useGetServicesListQuery()
+    // const { isFetching, data, refetch } = useGetServicesListQuery()
+    const isFetching = false
+    const data: any = []
+    const refetch = () => {}
     const goToCategory = (id: number) => {
         navigation.navigate('pm_categoryList', { id })
     }

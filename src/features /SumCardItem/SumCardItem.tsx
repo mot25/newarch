@@ -1,11 +1,10 @@
 import React, { FC, useRef } from 'react';
 import { FlatList, GestureResponderEvent, Keyboard, TextInput, View } from 'react-native';
+import { EColors } from '../../shared/config/constant';
+import { getProcent, thousand } from '../../shared/lib/helpers';
+import { ChipsItem } from '../../shared/ui/ChipsItem';
+import { TextLine } from '../../shared/ui/TextLine';
 
-import { EmpetyList } from '../../../../components/simple/EmpetyList';
-import { TextLine } from '../../../../components/simple/TextLine';
-import { EColors } from '../../../../utils/constant';
-import { getProcent, thousand } from '../../../../utils/helpers';
-import { ChipsItem } from './parts/ChipsItem';
 import styles from './SumCardItem.styles';
 
 type Props = {

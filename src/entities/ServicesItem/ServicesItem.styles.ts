@@ -1,9 +1,8 @@
 import { Dimensions, StyleSheet } from 'react-native';
-
-import { EColors, EFont } from '../../../../utils/constant';
+import { EColors, EFont } from '../../shared/config/constant';
 
 export default StyleSheet.create({
-    categoryItem: {
+    ServicesItem: {
         flexDirection: "row",
         alignItems: 'center',
     },

@@ -1,9 +1,7 @@
 import { useIsFocused } from '@react-navigation/native';
 import React, { useEffect } from 'react';
 import { Text } from 'react-native';
-
-import { PlugName } from '../../components/simple/PlugName';
-import { TextLine } from '../../components/simple/TextLine';
+import { PlugName } from '../../shared/ui/PlugName';
 
 type Props = {}
 

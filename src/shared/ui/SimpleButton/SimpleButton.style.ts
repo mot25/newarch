@@ -1,6 +1,6 @@
+import { EColors, EFont } from './../../config/constant';
 import { StyleSheet } from 'react-native';
 
-import { EColors, EFont } from '../../../utils/constant';
 
 export default StyleSheet.create({
     button: {

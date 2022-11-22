@@ -1,9 +1,8 @@
 import React, { FC } from 'react';
 import { Image, TouchableOpacity, View } from 'react-native';
+import { CTouchableOpacity } from '../../shared/ui/CTouchableOpacity';
+import { TextLine } from '../../shared/ui/TextLine';
 
-import { CTouchableOpacity } from '../../../../components/simple/CTouchableOpacity';
-import { TextLine } from '../../../../components/simple/TextLine';
-import { ICategory, IService } from '../../../../types/types';
 import styles from './ServicesItem.styles';
 
 type Props = {
@@ -11,11 +10,11 @@ type Props = {
     onPress: (id: number) => void
 }
 
-const CategoryItem: FC<Props> = ({ data, onPress }) => {
+const ServicesItem: FC<Props> = ({ data, onPress }) => {
     return (
         <CTouchableOpacity
             onPress={() => onPress(parseInt(data.service_id))}
-            style={styles.categoryItem}
+            style={styles.ServicesItem}
         >
             <View style={styles.left}>
                 <Image style={styles.image} source={{ uri: data.service_icon }} />
@@ -27,4 +26,4 @@ const CategoryItem: FC<Props> = ({ data, onPress }) => {
     )
 }
 
-export default CategoryItem
+export default ServicesItem

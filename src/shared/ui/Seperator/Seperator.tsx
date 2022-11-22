@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Dimensions, View } from 'react-native';
+import { EColors } from '../../config/constant';
 
-import { EColors } from '../../../utils/constant';
 import styles from './Seperator.styles';
 
 const { width } = Dimensions.get('window')

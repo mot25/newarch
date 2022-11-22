@@ -2,10 +2,10 @@ import React, { FC } from 'react';
 import { Image, TextInput, TextStyle, View } from 'react-native';
 import { TextInputMask } from 'react-native-masked-text';
 
-import { IconCloseInput } from '../../../../../assets/icons/IconCloseInput';
-import { CTouchableOpacity } from '../../../../components/simple/CTouchableOpacity';
-import { TextLine } from '../../../../components/simple/TextLine';
-import { EColors } from '../../../../utils/constant';
+import { IconCloseInput } from '../../../assets/icons/IconCloseInput';
+import { EColors } from '../../shared/config/constant';
+import { CTouchableOpacity } from '../../shared/ui/CTouchableOpacity';
+
 import styles from './InputCardNumber.styles';
 
 type Props = {

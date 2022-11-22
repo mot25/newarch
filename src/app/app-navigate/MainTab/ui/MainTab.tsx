@@ -8,7 +8,7 @@ import { IconProfile } from '../../../../../assets/icons/IconProfile';
 
 import styles from './MainTab.styles';
 import { TabOptionsLabel } from '../../../../shared/lib/TabOptionsLabel/TabOptionsLabel';
-import { NavMainTabsParamsType, NavPaymentsParamsType } from '../config/types';
+import { ERouteName, NavMainTabsParamsType, NavPaymentsParamsType, translateLabel } from '../config/types';
 import { MainPage } from '../../../../pages /MainPage';
 import { PaymentsStacks } from '../../PaymentsStacks';
 import { CashMachine } from '../../../../pages /CashMachine';
@@ -16,28 +16,13 @@ import { Profile } from '../../../../pages /Profile';
 import { isShowTabBarFromName } from '../../../../shared/lib/helpersByNavigation';
 
 
-type Props = {}
-type TTranslateRoutePayment = {
-  [key in ERouteName]: string;
-}
-const Tab = createBottomTabNavigator<NavMainTabsParamsType>();
-enum ERouteName {
-  MAINPAGE = 'MainPage',
-  PAYMENTSLISTSTACK = 'PaymentsListStack',
-  CASHMACHINE = 'CashMachine',
-  PROFILE = 'Profile',
-}
-const translateLabel: TTranslateRoutePayment = {
-  'CashMachine': 'Банкоматы',
-  'MainPage': 'Главная',
-  'PaymentsListStack': 'Платежи',
-  'Profile': 'Профиль'
-}
 
-const MainTab = (props: Props) => {
+const Tab = createBottomTabNavigator<NavMainTabsParamsType>();
+
+
+const MainTab = () => {
   return (
-    <NavigationContainer
-    >
+
       <Tab.Navigator
         screenOptions={{
           headerShown: false,
@@ -73,7 +58,6 @@ const MainTab = (props: Props) => {
           }}
           component={Profile} />
       </Tab.Navigator>
-    </NavigationContainer>
   )
 }
 

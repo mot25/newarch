@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
+import { thousand } from '../../lib/helpers';
+import { CTouchableOpacity } from '../CTouchableOpacity';
+import { TextLine } from '../TextLine';
 
-import { CTouchableOpacity } from '../../../../../../components/simple/CTouchableOpacity';
-import { TextLine } from '../../../../../../components/simple/TextLine';
-import { thousand } from '../../../../../../utils/helpers';
 import styles from './ChipsItem.styles';
 
 type Props = {
@@ -19,7 +19,7 @@ const ChipsItem: FC<Props> = ({ number, onPress }) => {
             <TextLine
                 style={styles.num}
             >
-                {thousand(number)} ₽
+                {thousand(number.toString())} ₽
             </TextLine>
         </CTouchableOpacity>
     )

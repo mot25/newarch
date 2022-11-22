@@ -1,9 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { Circle } from 'react-native-svg';
-
-import { aaa } from '../../../../../screens/PaymentsMain/parts/CategoryItem/CategoryItem';
-import { EColors } from '../../../../../utils/constant';
-
+import { EColors } from '../../config/constant';
 
 export default StyleSheet.create({
     root: {

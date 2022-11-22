@@ -1,12 +1,14 @@
 import React, { FC, useMemo } from 'react';
 import { Image, TextStyle, TouchableOpacity, View } from 'react-native';
 
-import { IconArrow } from '../../../../../assets/icons/IconArrow';
-import { IconBgCard } from '../../../../../assets/icons/IconBgCard';
-import { IconTypeCardMC } from '../../../../../assets/icons/IconTypeCardMC';
-import { CTouchableOpacity } from '../../../../components/simple/CTouchableOpacity';
-import { TextLine } from '../../../../components/simple/TextLine';
-import { thousand } from '../../../../utils/helpers';
+import { IconArrow } from '../../../assets/icons/IconArrow';
+import { IconBgCard } from '../../../assets/icons/IconBgCard';
+import { IconTypeCardMC } from '../../../assets/icons/IconTypeCardMC';
+import { thousand } from '../../shared/lib/helpers';
+import { CTouchableOpacity } from '../../shared/ui/CTouchableOpacity';
+import { TextLine } from '../../shared/ui/TextLine';
+
+
 import styles from './SelectCardItem.styles';
 
 export enum ETypeCard {
@@ -69,7 +71,7 @@ const SelectCardItem: FC<Props> = ({
                             {title}
                         </TextLine>
                         <TextLine style={styles.balance} >
-                            {thousand(balance)} ₽
+                            {thousand(balance.toString())} ₽
                         </TextLine>
                     </View>
                     <IconArrow />

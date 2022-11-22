@@ -1,4 +1,6 @@
 import React, { FC, memo } from 'react';
+import { EColors } from '../../config/constant';
+import { TextLine } from '../../ui/TextLine';
 
 import styles from './TabOptionsLabel.styles';
 

@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { Image, TouchableOpacity, View } from 'react-native';
+import { CTouchableOpacity } from '../../shared/ui/CTouchableOpacity';
+import { TextLine } from '../../shared/ui/TextLine';
 
-import { CTouchableOpacity } from '../../../../components/simple/CTouchableOpacity';
-import { TextLine } from '../../../../components/simple/TextLine';
-import { ICategory } from '../../../../types/types';
+
 import styles from './CategoryItem.styles';
 
 type Props = {

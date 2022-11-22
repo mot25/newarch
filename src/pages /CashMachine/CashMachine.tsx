@@ -1,8 +1,6 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { PlugName } from '../../shared/ui/PlugName';
 
-import { PlugName } from '../../components/simple/PlugName';
-import { TextLine } from '../../components/simple/TextLine';
 
 type Props = {}
 
