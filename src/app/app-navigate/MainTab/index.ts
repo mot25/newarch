@@ -1,0 +1,1 @@
+export { default as MainTab } from './ui/MainTab'
