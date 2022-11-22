@@ -1,0 +1,1 @@
+export { default as EmpetyList } from './EmpetyList'
