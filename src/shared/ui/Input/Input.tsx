@@ -7,7 +7,7 @@ import styles from './Input.styles';
 
 type Props = {
     value: string
-    placeholder: string
+    placeholder?: string
     onChange: (e: string) => void
     onFocus?: () => void
     onBlur?: () => void

@@ -9,16 +9,29 @@ import { EmpetyList } from '../../shared/ui/EmpetyList';
 import { Skeleton } from '../../entities/Skeleton';
 
 import styles from './CategoryList.styles';
-
+import { CategoryItem } from '../../entities/CategoryItem';
+import { Seperator } from '../../shared/ui/Seperator';
+import { Input } from '../../shared/ui/Input';
+import {
+  useQuery,
+} from 'react-query';
+import { api } from '../../shared/model/api/apiaxs';
 
 
 type NSPaymentsProps = NativeStackScreenProps<NavPaymentsParamsType, 'pm_categoryList'>
 
 const CategoryList = ({ navigation, route }: NSPaymentsProps) => {
   const { id } = route.params
-  // const { isFetching, data, refetch } = useGetServicesListQuery()
+  const { isLoading, error, data } = useQuery(
+    'repoData',
+    () =>
+      api.get('kode-frontend/files/raw/main/categories.json')
+    // 
+  );
+  console.log(data, 'data');
+  console.log('111',333);
+  
   const isFetching = false
-  const data: any = []
   const refetch = false
   const findServices: ICategory | undefined = data?.category.find(item => item.category_id === id.toString())
 
@@ -56,10 +69,13 @@ const CategoryList = ({ navigation, route }: NSPaymentsProps) => {
     }
 
   }, [search])
+
+
   useEffect(() => {
     navigation.setOptions({
       headerTitle: findServices?.category_name || ' '
     })
+
   }, [id])
   return (
     <View
