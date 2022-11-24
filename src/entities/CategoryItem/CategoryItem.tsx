@@ -1,16 +1,16 @@
 import React, { FC } from 'react';
 import { Image, TouchableOpacity, View } from 'react-native';
+
+import { ICategory } from '../../pages /CategoryList/config/apiTypes';
 import { CTouchableOpacity } from '../../shared/ui/CTouchableOpacity';
 import { TextLine } from '../../shared/ui/TextLine';
-
-
 import styles from './CategoryItem.styles';
+
 
 type Props = {
     data: ICategory
     onPress: (id: number) => void
 }
-export const aaa = 3
 const CategoryItem: FC<Props> = ({ data, onPress }) => {
     return (
         <CTouchableOpacity

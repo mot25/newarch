@@ -8,6 +8,7 @@ import { useQuery } from 'react-query';
 import { IconSearch } from '../../../../assets/icons/IconSearch';
 import { NavPaymentsParamsType } from '../../../app/app-navigate/MainTab/config/types';
 import { CategoryItem } from '../../../entities/CategoryItem';
+import { ServicesItem } from '../../../entities/ServicesItem';
 import { Skeleton } from '../../../entities/Skeleton';
 import { api } from '../../../shared/model/api/apiaxs';
 import { CountryServives } from '../../../shared/model/api/requests/requests';
@@ -15,7 +16,15 @@ import { EmpetyList } from '../../../shared/ui/EmpetyList';
 import { Input } from '../../../shared/ui/Input';
 import { Seperator } from '../../../shared/ui/Seperator';
 import { ICategory, IService } from '../config/apiTypes';
-import { $input, setInputChange } from '../model/state/modelCategory';
+import {
+  $categoryeName,
+  $input,
+  $services,
+  $servicesBySearch,
+  setCategoryes,
+  setIdCategory,
+  setInputChange,
+} from '../model/state/modelCategory';
 import styles from './CategoryList.styles';
 
 
@@ -23,12 +32,23 @@ type NSPaymentsProps = NativeStackScreenProps<NavPaymentsParamsType, 'pm_categor
 
 const CategoryList = ({ navigation, route }: NSPaymentsProps) => {
   const { id } = route.params
-const input = useStore($input)
-  // const goToCategoryItem = (id: number) => {
-  //   navigation.navigate('pn_itemCategory', {
-  //     service: findServices?.services.find(item => item.service_id === id.toString()),
-  //   })
-  // }
+  const input = useStore($input)
+  const services = useStore($servicesBySearch)
+  const categoryeName = useStore($categoryeName)
+
+  const { isFetching, error, data, refetch } = useQuery<ICategory[], Error>(
+    'repoData',
+    () => CountryServives.getCategory()
+  );
+
+  const goToCategoryItem = (id: number) => {
+    // setServicesId(id)
+
+    //   navigation.navigate('pn_itemCategory', {
+    // // TODO get service from effector f
+    //     service: findServices?.services.find(item => item.service_id === id.toString()),
+    //   })
+  }
   const showHeader = () => {
     navigation.setOptions({
       headerShown: true
@@ -40,6 +60,7 @@ const input = useStore($input)
     })
   }
   // useEffect(() => {
+  // // TODO get sort list from effector
   //   if (!!search.trim()) {
   //     const sortArr = servicesList?.filter(obj => Object.keys(obj).some((key: string) => {
   //       if (
@@ -54,12 +75,17 @@ const input = useStore($input)
   //   }
 
   // }, [search])
-  // useEffect(() => {
-  //   navigation.setOptions({
-  //     headerTitle: findServices?.category_name || ' '
-  //   })
-
-  // }, [id])
+  useEffect(() => {
+    setIdCategory(id.toString())
+  }, [id])
+  useEffect(() => {
+    navigation.setOptions({
+      headerTitle: categoryeName
+    })
+  }, [categoryeName])
+  useEffect(() => {
+    setCategoryes(data || [])
+  }, [data])
   return (
     <View
       style={styles.root}
@@ -79,20 +105,20 @@ const input = useStore($input)
         style={styles.body_list_wrapper}
       >
 
-        {/* {isFetching ?
+        {isFetching ?
           <Skeleton />
           :
           <FlatList
-            data={servicesList}
+            data={services}
             onRefresh={refetch}
             refreshing={isFetching}
             ListEmptyComponent={<EmpetyList />}
             contentContainerStyle={styles.body_list}
             keyExtractor={item => (item.service_id).toString()}
-            renderItem={({ item }) => <CategoryItem onPress={goToCategoryItem} data={item} />}
+            renderItem={({ item }) => <ServicesItem onPress={goToCategoryItem} data={item} />}
             ItemSeparatorComponent={() => <Seperator />}
           />
-        } */}
+        }
 
       </View>
 

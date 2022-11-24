@@ -37,19 +37,19 @@ function App({ }) {
         return null;
     }
     return (
-        <AlertNotificationRoot>
-            <ApiProvider>
-                <RouterProvider>
-                    <StoreProvider>
-                        <WrapperApplication
-                            onLayoutRootView={onLayoutRootView}
-                        >
-                            <MainTab />
-                        </WrapperApplication>
-                    </StoreProvider>
-                </RouterProvider>
-            </ApiProvider>
-        </AlertNotificationRoot>
+            <AlertNotificationRoot>
+                <ApiProvider>
+                    <RouterProvider>
+                        <StoreProvider>
+                            <WrapperApplication
+                                onLayoutRootView={onLayoutRootView}
+                            >
+                                <MainTab />
+                            </WrapperApplication>
+                        </StoreProvider>
+                    </RouterProvider>
+                </ApiProvider>
+            </AlertNotificationRoot>
     )
 }
 export default App

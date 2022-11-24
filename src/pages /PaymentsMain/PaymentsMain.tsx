@@ -57,7 +57,7 @@ const PaymentsMain = (
                             onRefresh={refetch}
                             refreshing={isFetching}
                             ListEmptyComponent={<EmpetyList />}
-                            data={data?.category}
+                            data={data}
                             keyExtractor={item => (item.category_id).toString()}
                             renderItem={({ item }) => <CategoryItem onPress={goToCategory} data={item} />}
                             ItemSeparatorComponent={() => <Seperator />}

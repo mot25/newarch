@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
 import { Image, TouchableOpacity, View } from 'react-native';
+
+import { IService } from '../../pages /CategoryList/config/apiTypes';
 import { CTouchableOpacity } from '../../shared/ui/CTouchableOpacity';
 import { TextLine } from '../../shared/ui/TextLine';
-
 import styles from './ServicesItem.styles';
 
 type Props = {

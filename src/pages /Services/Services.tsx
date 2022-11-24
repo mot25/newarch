@@ -4,18 +4,17 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { Image, Keyboard, KeyboardAvoidingView, Platform, ScrollView, View } from 'react-native';
 import { ALERT_TYPE, AlertNotificationRoot, Dialog, Toast } from 'react-native-alert-notification';
+
 import { NavPaymentsParamsType } from '../../app/app-navigate/MainTab/config/types';
+import { InputCardNumber } from '../../features /InputCardNumber';
+import SelectCardItem, { ETypeCard } from '../../features /SelectCardItem/SelectCardItem';
+import { SumCardItem } from '../../features /SumCardItem';
 import { EColors } from '../../shared/config/constant';
 import { thousand } from '../../shared/lib/helpers';
 import { SafeAreaKeyboard } from '../../shared/ui/SafeAreaKeyboard';
 import { SimpleButton } from '../../shared/ui/SimpleButton';
-
-
-import { InputCardNumber } from '../../features /InputCardNumber';
-
 import styles from './Services.styles';
-import { SumCardItem } from '../../features /SumCardItem';
-import SelectCardItem, { ETypeCard } from '../../features /SelectCardItem/SelectCardItem';
+
 
 type Props = {}
 type TSum = {
@@ -28,7 +27,7 @@ type ErrorValidate = {
 }
 const balanced = 457334.00
 type NSServicesItemProps = NativeStackScreenProps<NavPaymentsParamsType, 'pn_itemCategory'>
-const ServicesItem = ({ navigation, route }: NSServicesItemProps) => {
+const Services = ({ navigation, route }: NSServicesItemProps) => {
     const { service } = route.params
     const [error, serError] = useState<ErrorValidate>({
         number: false,
@@ -65,12 +64,7 @@ const ServicesItem = ({ navigation, route }: NSServicesItemProps) => {
     }
     const openSelectCards = () => {
         let flagError = false
-        console.log(
-            'localState.number.length',
-            localState.number.length,
-            'localState.sum.length',
-            localState.sum.length,
-        );
+
         if (localState.number.length === 0 && localState.sum.length < 2) {
             Toast.show({
                 type: ALERT_TYPE.DANGER,
@@ -106,7 +100,6 @@ const ServicesItem = ({ navigation, route }: NSServicesItemProps) => {
             })
         }
         flagError = false
-        console.log("file: ServicesItem.tsx ~ line 103 ~ openSelectCards ~ flagError", flagError)
 
     }
     useEffect(() => {
@@ -162,4 +155,4 @@ const ServicesItem = ({ navigation, route }: NSServicesItemProps) => {
     )
 }
 
-export default ServicesItem
+export default Services
