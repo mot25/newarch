@@ -6,10 +6,10 @@ import { IconBgCard } from '../../../assets/icons/IconBgCard';
 import { IconTypeCardMC } from '../../../assets/icons/IconTypeCardMC';
 import { thousand } from '../../shared/lib/helpers';
 import { CTouchableOpacity } from '../../shared/ui/CTouchableOpacity';
+import { HeaderTitleForBlock } from '../../shared/ui/HeaderTitleForBlock';
 import { TextLine } from '../../shared/ui/TextLine';
-
-
 import styles from './SelectCardItem.styles';
+
 
 export enum ETypeCard {
     MASTERCARD
@@ -34,7 +34,6 @@ const SelectCardItem: FC<Props> = ({
     const typeCardIcon = useMemo(() => {
         switch (typeCard) {
             case ETypeCard.MASTERCARD:
-
                 return <IconTypeCardMC />;
 
             default:
@@ -42,13 +41,13 @@ const SelectCardItem: FC<Props> = ({
         }
     }, [typeCard])
 
-
-
     return (
         <View
             style={[styles.root, classes]}
         >
-            <TextLine style={styles.title} >Карта для оплаты</TextLine>
+            <HeaderTitleForBlock
+                text='Карта для оплаты'
+            />
             <CTouchableOpacity
                 style={styles.cardContent}
                 onPress={onPress}

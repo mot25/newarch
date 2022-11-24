@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+
 import { EColors, EFont } from '../../shared/config/constant';
 
 
@@ -8,14 +9,7 @@ export default StyleSheet.create({
         padding: 16,
         marginBottom: 31
     },
-    title: {
-        color: EColors.INPUT_PLACEHOLDER,
-        fontFamily: EFont.SF_PRO_SEMIBOLD_600,
-        fontSize: 15,
-        lineHeight: 20,
-        letterSpacing: -0.24,
-        marginBottom: 20
-    },
+
     chipsWrapper: {
 
 

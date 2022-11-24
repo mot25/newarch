@@ -22,6 +22,7 @@ import {
   $selectServicesById,
   $services,
   $servicesBySearch,
+  clearAllCategory as clearAll,
   setCategoryes,
   setIdCategory,
   setInputChange,
@@ -38,7 +39,6 @@ const CategoryList = ({ navigation, route }: NSPaymentsProps) => {
   const services = useStore($servicesBySearch)
   const categoryeName = useStore($categoryeName)
   const selectServicesById = useStore($selectServicesById)
-  console.log("🚀 ~ file: CategoryList.tsx ~ line 40 ~ CategoryList ~ selectServicesById", selectServicesById)
 
   const { isFetching, error, data, refetch } = useQuery<ICategory[], Error>(
     'repoData',
@@ -63,6 +63,7 @@ const CategoryList = ({ navigation, route }: NSPaymentsProps) => {
     })
   }
 
+
   useEffect(() => {
     setIdCategory(id.toString())
   }, [id])
@@ -74,6 +75,18 @@ const CategoryList = ({ navigation, route }: NSPaymentsProps) => {
   useEffect(() => {
     setCategoryes(data || [])
   }, [data])
+
+  useEffect(() => {
+    console.log('category');
+    setIdCategory(id.toString())
+
+    return () => {
+
+      console.log('return category');
+      clearAll()
+    }
+  }, [])
+
   return (
     <View
       style={styles.root}

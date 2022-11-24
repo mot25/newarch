@@ -1,10 +1,11 @@
 import React, { FC, useRef } from 'react';
 import { FlatList, GestureResponderEvent, Keyboard, TextInput, View } from 'react-native';
+
 import { EColors } from '../../shared/config/constant';
 import { getProcent, thousand } from '../../shared/lib/helpers';
 import { ChipsItem } from '../../shared/ui/ChipsItem';
+import { HeaderTitleForBlock } from '../../shared/ui/HeaderTitleForBlock';
 import { TextLine } from '../../shared/ui/TextLine';
-
 import styles from './SumCardItem.styles';
 
 type Props = {
@@ -20,16 +21,13 @@ const SumCardItem: FC<Props> = ({ onChange, error, value }) => {
         e.stopPropagation()
         inputRef.current?.focus()
     }
-
     return (
         <View
             style={styles.root}
         >
-            <TextLine
-                style={styles.title}
-            >
-                Сумма
-            </TextLine>
+            <HeaderTitleForBlock
+                text='Сумма'
+            />
             <View
                 style={styles.chipsWrapper}
             >
@@ -53,7 +51,7 @@ const SumCardItem: FC<Props> = ({ onChange, error, value }) => {
                     backgroundColor: error ? EColors.BG_INPUT_ERROR : EColors.CURSOR_INPUT,
                 }]} />
                 {
-                 getProcent(10, +value) > 1 ?
+                    getProcent(10, +value) > 1 ?
                         <TextLine
                             style={styles.cashBack}
                         >Ваш кешбек составит {procent}% - {thousand(getProcent(procent, +value).toString())} ₽</TextLine>

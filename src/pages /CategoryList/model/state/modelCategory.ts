@@ -25,6 +25,7 @@ export const setInputChange = createEvent<string>()
 export const setIdCategory = createEvent<string>()
 export const setCategoryes = createEvent<ICategory[]>()
 export const setSelectServicesById = createEvent<string>()
+export const clearAll = createEvent<void>()
 // some function
 $input.on(setInputChange, (state, msg: string) => msg)
 $categoryes.on(setCategoryes, (state, data: ICategory[]) => data)
@@ -75,3 +76,12 @@ sample({
     },
     target: $servicesBySearch
 })
+$input.reset(clearAll)
+sample({
+    clock: clearAll,
+    source: $services,
+    target: $servicesBySearch
+})
+export {
+    clearAll as clearAllCategory
+}
