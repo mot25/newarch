@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
-import { EColors } from '../../shared/config/constant';
+
+import { EColors } from '../../../shared/config/constant';
 
 
 export default StyleSheet.create({

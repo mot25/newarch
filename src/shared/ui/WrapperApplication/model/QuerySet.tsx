@@ -1,10 +1,11 @@
-import NetInfo from '@react-native-community/netinfo'
-import { onlineManager } from 'react-query'
-
-onlineManager.setEventListener(setOnline => {
-    return NetInfo.addEventListener(state => {
-        setOnline(state.isConnected)
-    })
-})
+import { AppStateStatus, Platform } from 'react-native';
+import { focusManager } from 'react-query';
 
 
+
+
+export function onAppStateChange(status: AppStateStatus) {
+    if (Platform.OS !== 'web') {
+        focusManager.setFocused(status === 'active')
+    }
+}

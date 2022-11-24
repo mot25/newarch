@@ -1,4 +1,5 @@
 import { getFocusedRouteNameFromRoute, ParamListBase, RouteProp } from '@react-navigation/native';
+import { TextStyle } from 'react-native';
 
 
 // Вообщем, что за кашу я наворил. Это функция для того, чтобы скрыть табы в стеке, 

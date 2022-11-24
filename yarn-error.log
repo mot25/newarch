@@ -1,26 +1,26 @@
 Arguments: 
-  /Users/motdev/.nvm/versions/node/v16.18.1/bin/node /usr/local/bin/yarn add @react-native-community @types/@react-native-community
+  /home/motdev/.nvm/versions/node/v16.18.0/bin/node /home/motdev/.nvm/versions/node/v16.18.0/bin/yarn add @types/effector
 
 PATH: 
-  /Users/motdev/.rbenv/shims:/Users/motdev/.nvm/versions/node/v16.18.1/bin:/Users/motdev/.rbenv/shims:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/motdev/.rbenv/shims:/Users/motdev/.nvm/versions/node/v16.18.1/bin
+  /home/motdev/.nvm/versions/node/v16.18.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/motdev/Android/Sdk/emulator:/home/motdev/Android/Sdk/platform-tools
 
 Yarn version: 
   1.22.19
 
 Node version: 
-  16.18.1
+  16.18.0
 
 Platform: 
-  darwin x64
+  linux x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@react-native-community: Request "https://registry.yarnpkg.com/@react-native-community" returned a 405
-      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66154:18)
-      at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140890:22)
+  Error: https://registry.yarnpkg.com/@types%2feffector: Not found
+      at Request.params.callback [as _callback] (/home/motdev/.nvm/versions/node/v16.18.0/lib/node_modules/yarn/lib/cli.js:66145:18)
+      at Request.self.callback (/home/motdev/.nvm/versions/node/v16.18.0/lib/node_modules/yarn/lib/cli.js:140890:22)
       at Request.emit (node:events:513:28)
-      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141862:10)
+      at Request.<anonymous> (/home/motdev/.nvm/versions/node/v16.18.0/lib/node_modules/yarn/lib/cli.js:141862:10)
       at Request.emit (node:events:513:28)
-      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141784:12)
+      at IncomingMessage.<anonymous> (/home/motdev/.nvm/versions/node/v16.18.0/lib/node_modules/yarn/lib/cli.js:141784:12)
       at Object.onceWrapper (node:events:627:28)
       at IncomingMessage.emit (node:events:525:35)
       at endReadableNT (node:internal/streams/readable:1358:12)
@@ -39,6 +39,7 @@ npm manifest:
     },
     "dependencies": {
       "@expo/webpack-config": "^0.17.2",
+      "@react-native-community/netinfo": "^9.3.6",
       "@react-navigation/bottom-tabs": "^6.4.0",
       "@react-navigation/native": "^6.0.13",
       "@react-navigation/native-stack": "^6.9.1",
@@ -46,6 +47,7 @@ npm manifest:
       "@types/axios": "^0.14.0",
       "@types/react-query": "^1.2.9",
       "axios": "^1.1.3",
+      "effector": "^22.4.0",
       "expo": "~47.0.3",
       "expo-splash-screen": "~0.17.5",
       "expo-status-bar": "~1.4.2",
@@ -1853,6 +1855,11 @@ Lockfile:
       graceful-fs "^4.1.3"
       prompts "^2.4.0"
       semver "^6.3.0"
+  
+  "@react-native-community/netinfo@^9.3.6":
+    version "9.3.6"
+    resolved "https://registry.yarnpkg.com/@react-native-community/netinfo/-/netinfo-9.3.6.tgz#730de4ebf83f7263fa61b0cbec6cde9b28660077"
+    integrity sha512-SwbBnHZuXcCUpYdL6ebt4HPAZEugPASl+RPxIyNe91Y+boZptzAFLywYW6yU93DYAhiHHFQBL6x6LxwF/K/tOQ==
   
   "@react-native/assets@1.0.0":
     version "1.0.0"
@@ -4482,6 +4489,11 @@ Lockfile:
     version "1.1.1"
     resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
     integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
+  
+  effector@^22.4.0:
+    version "22.4.0"
+    resolved "https://registry.yarnpkg.com/effector/-/effector-22.4.0.tgz#6f94352d30268f644321892167ebe52ebc3e70a6"
+    integrity sha512-WQ0rboUp1fvkzo2rPymtWzR9isUl8v9McGvBA4g8zvQaTgZnXQ1iCbNj2S54bADGpSNl1CYv1/61vvdbc5Goyw==
   
   electron-to-chromium@^1.3.564, electron-to-chromium@^1.4.251:
     version "1.4.284"

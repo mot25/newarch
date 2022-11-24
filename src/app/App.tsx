@@ -1,12 +1,14 @@
-import { useCallback } from "react";
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
-import { AlertNotificationRoot } from "react-native-alert-notification";
-import { RouterProvider } from "./providers/RouterProvider";
-import { StoreProvider } from "./providers/StoreProvider";
-import { WrapperApplication } from "../shared/ui/WrapperApplication";
-import { MainTab } from "./app-navigate/MainTab";
-import { Text } from "react-native";
+import { useCallback } from 'react';
+import { Text } from 'react-native';
+import { AlertNotificationRoot } from 'react-native-alert-notification';
+
+import { WrapperApplication } from '../shared/ui/WrapperApplication';
+import { MainTab } from './app-navigate/MainTab';
+import { ApiProvider } from './providers/ApiProvider';
+import { RouterProvider } from './providers/RouterProvider';
+import { StoreProvider } from './providers/StoreProvider';
 
 SplashScreen.preventAutoHideAsync();
 const customFonts = {
@@ -36,15 +38,17 @@ function App({ }) {
     }
     return (
         <AlertNotificationRoot>
-            <RouterProvider>
-                <StoreProvider>
-                    <WrapperApplication
-                        onLayoutRootView={onLayoutRootView}
-                    >
-                        <MainTab />
-                    </WrapperApplication>
-                </StoreProvider>
-            </RouterProvider>
+            <ApiProvider>
+                <RouterProvider>
+                    <StoreProvider>
+                        <WrapperApplication
+                            onLayoutRootView={onLayoutRootView}
+                        >
+                            <MainTab />
+                        </WrapperApplication>
+                    </StoreProvider>
+                </RouterProvider>
+            </ApiProvider>
         </AlertNotificationRoot>
     )
 }
