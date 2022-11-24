@@ -8,13 +8,13 @@ import styles from './ServicesItem.styles';
 
 type Props = {
     data: IService
-    onPress: (id: number) => void
+    onPress: (id: string) => void
 }
 
 const ServicesItem: FC<Props> = ({ data, onPress }) => {
     return (
         <CTouchableOpacity
-            onPress={() => onPress(parseInt(data.service_id))}
+            onPress={() => onPress(data.service_id)}
             style={styles.ServicesItem}
         >
             <View style={styles.left}>

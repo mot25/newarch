@@ -10,6 +10,7 @@ export const $categoryes = createStore<ICategory[]>([])
 export const $categoryeName = createStore<string>('')
 export const $services = createStore<IService[]>([])
 export const $servicesBySearch = createStore<IService[]>([])
+export const $selectServicesById = createStore<IService | null>(null)
 
 
 // wathers 
@@ -23,10 +24,20 @@ export const $servicesBySearch = createStore<IService[]>([])
 export const setInputChange = createEvent<string>()
 export const setIdCategory = createEvent<string>()
 export const setCategoryes = createEvent<ICategory[]>()
+export const setSelectServicesById = createEvent<string>()
 // some function
 $input.on(setInputChange, (state, msg: string) => msg)
 $categoryes.on(setCategoryes, (state, data: ICategory[]) => data)
 $idCategory.on(setIdCategory, (state, id: string) => id)
+
+sample({
+    clock: setSelectServicesById,
+    source: $services,
+    fn(src, clk) {
+        return src.find(item => item.service_id === clk) || null
+    },
+    target: $selectServicesById
+})
 
 sample({
     source: $idCategory,
@@ -50,14 +61,14 @@ sample({
     },
     fn({ src, servicesBySearch }, clk) {
         if (!!clk.trim()) {
-            const sortArr = src?.filter(obj => Object.keys(obj).some((key: string) => {
+            return src?.filter(obj => Object.keys(obj).some((key: string) => {
                 if (
                     key === 'service_name'
                 ) {
                     return obj[key].toUpperCase().includes(clk.toUpperCase())
                 }
             }))
-            return sortArr
+
         } else {
             return src
         }

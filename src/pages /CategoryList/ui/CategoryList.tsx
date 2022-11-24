@@ -19,11 +19,13 @@ import { ICategory, IService } from '../config/apiTypes';
 import {
   $categoryeName,
   $input,
+  $selectServicesById,
   $services,
   $servicesBySearch,
   setCategoryes,
   setIdCategory,
   setInputChange,
+  setSelectServicesById,
 } from '../model/state/modelCategory';
 import styles from './CategoryList.styles';
 
@@ -35,19 +37,20 @@ const CategoryList = ({ navigation, route }: NSPaymentsProps) => {
   const input = useStore($input)
   const services = useStore($servicesBySearch)
   const categoryeName = useStore($categoryeName)
+  const selectServicesById = useStore($selectServicesById)
+  console.log("🚀 ~ file: CategoryList.tsx ~ line 40 ~ CategoryList ~ selectServicesById", selectServicesById)
 
   const { isFetching, error, data, refetch } = useQuery<ICategory[], Error>(
     'repoData',
     () => CountryServives.getCategory()
   );
 
-  const goToCategoryItem = (id: number) => {
-    // setServicesId(id)
-
-    //   navigation.navigate('pn_itemCategory', {
-    // // TODO get service from effector f
-    //     service: findServices?.services.find(item => item.service_id === id.toString()),
-    //   })
+  const goToCategoryItem = (id: string) => {
+    setSelectServicesById(id)
+    if (selectServicesById)
+      navigation.navigate('pn_itemCategory', {
+        service: selectServicesById
+      })
   }
   const showHeader = () => {
     navigation.setOptions({
@@ -59,22 +62,7 @@ const CategoryList = ({ navigation, route }: NSPaymentsProps) => {
       headerShown: false
     })
   }
-  // useEffect(() => {
-  // // TODO get sort list from effector
-  //   if (!!search.trim()) {
-  //     const sortArr = servicesList?.filter(obj => Object.keys(obj).some((key: string) => {
-  //       if (
-  //         key === 'service_name'
-  //       ) {
-  //         return obj[key].toUpperCase().includes(search.toUpperCase())
-  //       }
-  //     }))
-  //     setServicesList(sortArr)
-  //   } else {
-  //     setServicesList(findServices?.services)
-  //   }
 
-  // }, [search])
   useEffect(() => {
     setIdCategory(id.toString())
   }, [id])
